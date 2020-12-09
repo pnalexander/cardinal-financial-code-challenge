@@ -18,7 +18,22 @@ Vue.component('employee', {
 new Vue({
   el: 'main',
   data: {
-    employeeDirectory : []
+    employeeDirectory: [],
+    searchParam: ''
+  },
+
+  methods: {
+    // searchResults() {
+    //   return this.employeeDirectory.filter(employee => employee.department == 'Executive');
+    //   // alert(this.searchParam);
+    // }
+  },
+
+  computed: {
+    searchResults() {
+      return this.employeeDirectory.filter(employee => employee.department == this.searchParam);
+      // alert(this.searchParam);
+    }
   },
 
   mounted() {
