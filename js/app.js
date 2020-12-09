@@ -19,19 +19,23 @@ new Vue({
   el: 'main',
   data: {
     employeeDirectory: [],
-    searchParam: ''
+    searchParam: '',
+    department: ''
   },
 
   methods: {
-    // searchResults() {
-    //   return this.employeeDirectory.filter(employee => employee.department == 'Executive');
-    //   // alert(this.searchParam);
-    // }
+    // Define parameters for searchResults() based on user input
+    filterResults(selectedFilters) {
+
+    }
   },
 
   computed: {
+    // Search for results with given parameters
+    // Returns array
     searchResults() {
-      return this.employeeDirectory.filter(employee => employee.department == this.searchParam);
+      // return this.employeeDirectory.filter(employee => employee.name.first == this.searchParam && employee.department == 'Executive');
+      return this.employeeDirectory.filter(employee => employee.name.first == this.searchParam && employee.department == this.department);
       // alert(this.searchParam);
     }
   },

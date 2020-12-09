@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Paul Alexander | Code Challenge</title>
 
@@ -17,9 +17,20 @@
   </header>
   <main class="uk-container">
     <div class="uk-margin">
-      <form class="uk-search uk-search-default">
-          <button class="uk-search-icon-flip uk-search-toggle" @click="searchResults" uk-search-icon></button>
-          <input class="uk-search-input" type="input" placeholder="Search..." v-model="searchParam">
+      <form class="">
+          <input class="uk-input" type="input" placeholder="Search by Name..." v-model="searchParam">
+          <select class="uk-select" v-model="department">
+            <option>Choose Department</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Executive">Executive</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Operations">Operations</option>
+            <option value="Sales">Sales</option>
+          </select>
+          <!-- <button class="uk-search-icon-flip uk-search-toggle" @click="searchResults" uk-search-icon></button> -->
       </form>
     </div>
     <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
@@ -32,7 +43,7 @@
               <div class="uk-width-expand">
                   <h3 class="uk-card-title uk-link-heading uk-margin-remove-bottom">{{ employee.name.first + " " + employee.name.last }}</h3>
                   <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">{{ employee.job_title }}</p>
-                  <p class="uk-text-meta uk-margin-remove-top">{{ employee.department}} Department</p>
+                  <p class="uk-text-meta uk-margin-remove-top small">{{ employee.department}} Department</p>
               </div>
           </div>
         </div>
