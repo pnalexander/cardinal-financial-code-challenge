@@ -1,1 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,200;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* ----------
+
+[Table of Contents]
+
+1. Typography
+2. Body
+3. Header
+4. Main
+5. Footer
+
+
+[Color Codes] (extract to SCSS variables if time to refactor)
+
+Primary: #002D40
+Secondary: #DFA928
+Tertiary: #58585B
+Accent: #4E9A92
+
+---------- */
+
+
+/* 1. Typography */
+
+/* Define global font family */
+* {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Define font sizes and weights from style guide */
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+}
+h2 {
+  font-size: 36px;
+  font-weight: 500;
+}
+h3 {
+  font-size: 30px;
+  font-weight: 400;
+}
+h4 {
+  font-size: 24px;
+  font-weight: 800;
+}
+h5 {
+  font-size: 24px;
+  font-weight: 600;
+}
+h6 {
+  font-size: 20px;
+  font-weight: 500;
+}
+h6.alt {
+  font-size: 18px;
+  font-weight: 700;
+}
+p {
+  font-size: 16px;
+  font-weight: 400;
+}
+p.medium {
+  font-size: 14px;
+}
+p.small {
+  font-size: 12px;
+}
+p.smallest {
+  font-size: 10px;
+}
+
+/* 2. Body */
