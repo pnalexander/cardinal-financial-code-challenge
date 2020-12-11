@@ -1,3 +1,59 @@
+// Vue.component('search-form', {
+//   props: [],
+//
+//   template: `
+//     <form class="row">
+//       <search-input v-model="searchParam"></search-input>
+//
+//       <div class="input-field col s12 m6">
+//         <select v-model="department">
+//           <option value="0" diabled selected>Choose Department</option>
+//           <option value="Engineering">Engineering</option>
+//           <option value="Executive">Executive</option>
+//           <option value="Finance">Finance</option>
+//           <option value="Marketing">Marketing</option>
+//           <option value="Human Resources">Human Resources</option>
+//           <option value="Information Technology">Information Technology</option>
+//           <option value="Operations">Operations</option>
+//           <option value="Sales">Sales</option>
+//         </select>
+//         <label>Department</label>
+//       </div>
+//     </form>
+//   `
+// });
+//
+// Vue.component('search-input', {
+//   props: ['value'],
+//
+//   template: `
+//     <div class="input-field col s12 m6">
+//       <input id="searchParam" type="text" v-bind="value" v-on:input="$emit('input', $event.target.value)">
+//       <label for="searchParam">Search by Name...</label>
+//     </div>
+//   `
+// });
+
+let directory = Vue.component('directory', {
+  props: ['searchResults'],
+
+  template: `
+    <div>
+      <employee
+        v-for="(employee, index) in searchResults"
+        :key="employee.id"
+        v-bind:employee-id="employee.id"
+        v-bind:job-title="employee.job_title"
+        v-bind:full-name="employee.name.first + ' ' + employee.name.last"
+        v-bind:first-name="employee.name.first"
+        v-bind:last-name="employee.name.last"
+        v-bind:department="employee.department"
+        v-bind:headshot="employee.headshot.large"
+      ></employee>
+    </div>
+  `
+});
+
 Vue.component('employee', {
   props: ['employeeId', 'jobTitle', 'fullName', 'firstName', 'lastName', 'department','headshot'],
 
@@ -27,7 +83,7 @@ Vue.component('employee', {
 });
 
 let profile = Vue.component('profile', {
-  // props: [],
+  props: ['profileId'],
 
   data() {
     return {
@@ -41,6 +97,7 @@ let profile = Vue.component('profile', {
     }
   },
 
+// <h1>{{ this.profile.name.first + ' ' + this.profile.name.last }}</h1>
   template: `
     <h1>{{ this.profile.name.first + ' ' + this.profile.name.last }}</h1>
   `,
@@ -51,10 +108,10 @@ let profile = Vue.component('profile', {
 });
 
 let routes = [
-  // {
-  //   path: '/',
-  //   component: directory
-  // },
+  {
+    path: '/',
+    component: directory
+  },
   {
     path: '/profile/:id',
     component: profile
