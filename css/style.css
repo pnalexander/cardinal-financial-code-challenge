@@ -87,7 +87,8 @@ p.smallest {
 h1 {
   /* color: #4E9A92; */
   color: #002D40;
-  text-decoration: overline #DFA928;;
+  -webkit-text-decoration: overline #DFA928;
+  text-decoration: overline #DFA928;
 }
 
 input {
@@ -100,6 +101,7 @@ input[type=text]:not(.browser-default), input[type=text]:not(.browser-default) {
 }
 input[type=text]:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid #DFA928;
+  -webkit-box-shadow: 0 1px 0 0 #DFA928;
   box-shadow: 0 1px 0 0 #DFA928;
 }
 
@@ -133,6 +135,7 @@ a h4 {
 } */
 
 .card img {
+  -webkit-border-radius: 50%;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
@@ -146,6 +149,7 @@ a h4 {
   line-height: 110%;
 }
 .card a h4:hover {
+  -webkit-text-decoration: underline #DFA928;
   text-decoration: underline #DFA928;
 }
 .card .card-action {
