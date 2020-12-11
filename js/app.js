@@ -1,5 +1,3 @@
-// Vue.use(vueRouter);
-
 Vue.component('employee', {
   props: ['employeeId', 'jobTitle', 'name', 'department','headshot'],
 
@@ -24,14 +22,7 @@ Vue.component('employee', {
           </div>
         </div>
     </article>
-  `,
-
-  methods: {
-    // selectedEmployee(id) {
-    //   // console.log(this.employeeDirectory.find(employee => employee.id == this.key));
-    //   alert(id);
-    // }
-  }
+  `
 });
 
 let profile = Vue.component('profile', {
@@ -39,13 +30,23 @@ let profile = Vue.component('profile', {
 
   data() {
     return {
-      // employeeId: ''
+      profile: {}
+    }
+  },
+
+  methods: {
+    getProfile() {
+      axios.get('https://raw.githubusercontent.com/pnalexander/cardinal-financial-code-challenge/v1/directory.json').then(response => this.profile = response.data.results.find(profile => profile.id == this.$route.params.id));
     }
   },
 
   template: `
-    <h1>{{ this.$route.params.id}}</h1>
-  `
+    <h1>{{ this.profile.name.first + ' ' + this.profile.name.last }}</h1>
+  `,
+
+  created() {
+    this.getProfile();
+  }
 });
 
 let routes = [
@@ -71,24 +72,18 @@ new Vue({
     id: ''
   },
 
-  methods: {
-    // Define parameters for searchResults() based on user input
-    filterResults(searchParam, resultFilters) {
-      //
-    },
-
-    selectedEmployee(id) {
-      // console.log(this.employeeDirectory.find(employee => employee.id == this.key));
-      // alert(id);
-      console.log(this.key);
-    }
-  },
-
   computed: {
     // Search for results with given parameters
     // Returns array
     searchResults() {
-      return this.employeeDirectory.filter(employee => (employee.name.first.toLowerCase().includes(this.searchParam.toLowerCase()) || employee.name.last.toLowerCase().includes(this.searchParam.toLowerCase())) && employee.department == this.department);
+      if(this.department != 0) { // search by name and department
+        results = this.employeeDirectory.filter(employee => (employee.name.first.toLowerCase().includes(this.searchParam.toLowerCase()) || employee.name.last.toLowerCase().includes(this.searchParam.toLowerCase()) || (employee.name.first.toLowerCase() + ' ' + employee.name.last.toLowerCase()).includes(this.searchParam.toLowerCase())) && employee.department == this.department)
+      }
+      else { // search only by name with no further filters
+        results = this.employeeDirectory.filter(employee => employee.name.first.toLowerCase().includes(this.searchParam.toLowerCase()) || employee.name.last.toLowerCase().includes(this.searchParam.toLowerCase()) || (employee.name.first.toLowerCase() + ' ' + employee.name.last.toLowerCase()).includes(this.searchParam.toLowerCase()))
+      }
+      // return this.employeeDirectory.filter(employee => (employee.name.first.toLowerCase().includes(this.searchParam.toLowerCase()) || employee.name.last.toLowerCase().includes(this.searchParam.toLowerCase())) && employee.department == this.department);
+      return results;
     }
   },
 
