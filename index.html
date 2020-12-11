@@ -79,7 +79,7 @@
         </router-link>
       </article> -->
 
-      <article class="col s12 m3" v-for="(employee, index) in searchResults" :key="employee.id">
+      <article class="col s12 m6 l4" v-for="(employee, index) in searchResults" :key="employee.id">
         <div class="card">
           <div class="card-content">
             <router-link :to="/profile/ + employee.id">
