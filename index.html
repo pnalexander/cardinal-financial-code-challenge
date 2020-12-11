@@ -79,14 +79,30 @@
         </router-link>
       </article> -->
 
-      <ul class="collection">
+      <article class="col s12 m3" v-for="(employee, index) in searchResults" :key="employee.id">
+        <div class="card">
+          <div class="card-content">
+            <router-link :to="/profile/ + employee.id">
+              <img :src="employee.headshot.large">
+              <h4 class="hide-on-small-only truncate">{{ employee.name.first + ' ' + employee.name.last }}</h4>
+              <h4 class="hide-on-med-and-up truncate">{{ employee.name.first }}<br>{{ employee.name.last }}</h4>
+            </router-link>
+          </div>
+          <div class="card-action">
+            <p class="truncate medium">{{ employee.job_title }}</p>
+            <p class="truncate small">{{ employee.department }} Department</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- <ul class="collection">
         <li class="collection-item avatar" v-for="(employee, index) in searchResults" :key="employee.id">
           <img :src="employee.headshot.medium" class="circle">
           <router-link :to="/profile/ + employee.id"><h4 class="">{{ employee.name.first + ' ' + employee.name.last }}</h4></router-link>
           <p>{{ employee.job_title }}</p>
           <p class="small">{{ employee.department }} Department</p>
         </li>
-      </ul>
+      </ul> -->
 
     </section>
       <router-view></router-view>

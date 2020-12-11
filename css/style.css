@@ -26,7 +26,7 @@ Accent: #4E9A92
 
 html, body {
   overflow-x: hidden;
-  background-color: #002D40;
+  /* background-color: #002D40; */
 }
 body {
   position: relative;
@@ -85,8 +85,9 @@ p.smallest {
 
 /* 3. Body */
 h1 {
-  color: #4E9A92;
-  /* color: #002D40; */
+  /* color: #4E9A92; */
+  color: #002D40;
+  text-decoration: overline #DFA928;;
 }
 
 input {
@@ -94,8 +95,8 @@ input {
 }
 
 input[type=text]:not(.browser-default), input[type=text]:not(.browser-default) {
-  /* border-bottom: 1px solid #4E9A92; */
-  border-bottom: 1px solid #DFA928;
+  border-bottom: 1px solid #4E9A92;
+  /* border-bottom: 1px solid #DFA928; */
 }
 input[type=text]:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid #DFA928;
@@ -115,15 +116,12 @@ a h4 {
   color: #002D40;
 }
 
-.collection {
+/* .collection {
   border: 1px solid #58585B;
-  /* border: 1px solid #4E9A92; */
 }
 
 .collection .collection-item {
-  /* background-color: #DFA928; */
   border-bottom: 1px solid #58585B;
-  /* border-bottom: 1px solid #4E9A92; */
 }
 
 .collection .collection-item p {
@@ -131,5 +129,34 @@ a h4 {
 }
 
 .collection .collection-item p.small {
+  color: #4E9A92;
+} */
+
+.card img {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+.card a h4 {
+  text-align: center;
+  margin: 1rem 0;
+  color: #002D40;
+  line-height: 110%;
+}
+.card a h4:hover {
+  text-decoration: underline #DFA928;
+}
+.card .card-action {
+  border-top: 1px solid #4E9A92;
+}
+.card p {
+  margin: 0;
+}
+.card p.medium {
+  color: #58585B;
+}
+.card p.small {
   color: #4E9A92;
 }
