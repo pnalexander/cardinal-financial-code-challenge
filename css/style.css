@@ -26,7 +26,7 @@ Accent: #4E9A92
 
 html, body {
   overflow-x: hidden;
-  /* background-color: #002D40; */
+  background-color: #002D40;
 }
 body {
   position: relative;
@@ -85,8 +85,8 @@ p.smallest {
 
 /* 3. Body */
 h1 {
-  /* color: #4E9A92; */
-  color: #002D40;
+  color: #4E9A92;
+  /* color: #002D40; */
 }
 
 input {
@@ -116,13 +116,13 @@ a h4 {
 }
 
 .collection {
-  /* border: 1px solid #58585B; */
+  border: 1px solid #58585B;
   /* border: 1px solid #4E9A92; */
 }
 
 .collection .collection-item {
   /* background-color: #DFA928; */
-  /* border-bottom: 1px solid #58585B; */
+  border-bottom: 1px solid #58585B;
   /* border-bottom: 1px solid #4E9A92; */
 }
 
