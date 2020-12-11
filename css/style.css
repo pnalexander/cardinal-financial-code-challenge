@@ -4,11 +4,12 @@
 
 [Table of Contents]
 
-1. Typography
-2. Body
-3. Header
-4. Main
-5. Footer
+1. Globals
+2. Typography
+3. Body
+4. Header
+5. Main
+6. Footer
 
 
 [Color Codes] (extract to SCSS variables if time to refactor)
@@ -21,7 +22,17 @@ Accent: #4E9A92
 ---------- */
 
 
-/* 1. Typography */
+/* 1. Globals */
+
+html, body {
+  overflow-x: hidden;
+  background-color: #002D40;
+}
+body {
+  position: relative;
+}
+
+/* 2. Typography */
 
 /* Define global font family */
 * {
@@ -72,4 +83,41 @@ p.smallest {
   font-size: 10px;
 }
 
-/* 2. Body */
+/* 3. Body */
+h1 {
+  color: #4E9A92;
+}
+
+input[type=text]:not(.browser-default), input[type=text]:not(.browser-default) {
+  border-bottom: 1px solid #4E9A92;
+}
+
+.input-field>label, .input-field>label.active {
+  color: #4E9A92;
+}
+
+.select-wrapper .caret {
+  fill: #4E9A92;
+}
+
+a h4 {
+  margin: .15rem 0;
+  color: #002D40;
+}
+
+.collection {
+  border: 1px solid #58585B;
+}
+
+.collection .collection-item {
+  background-color: #DFA928;
+  border-bottom: 1px solid #58585B;
+}
+
+.collection .collection-item p {
+  color: #58585B;
+}
+
+.collection .collection-item p.small {
+  color: #4E9A92;
+}
