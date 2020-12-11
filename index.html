@@ -38,48 +38,10 @@
           </select>
           <label>Department</label>
         </div>
-
-          <!-- <input class="uk-input" type="input" placeholder="Search by Name..." v-model="searchParam">
-          <select class="uk-select" v-model="department">
-            <option value="0">Choose Department</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Executive">Executive</option>
-            <option value="Finance">Finance</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Human Resources">Human Resources</option>
-            <option value="Information Technology">Information Technology</option>
-            <option value="Operations">Operations</option>
-            <option value="Sales">Sales</option>
-          </select> -->
       </form>
     <section class="row">
-      <!-- <employee
-        v-for="(employee, index) in searchResults"
-        v-bind:key="employee.id"
-        v-bind:headshot="employee.headshot.medium"
-        v-bind:name="employee.name.first + ' ' + employee.name.last"
-        v-bind:job-title="employee.job_title"
-        v-bind:department="employee.department"
-        :click="selectedEmployee(employee.id)"
-      ></employee> -->
-      <!-- <article v-for="(employee, index) in searchResults" :key="employee.id" class="uk-card uk-card-default uk-link-toggle uk-width-1-3@m uk-padding-remove">
-        <router-link :to="/profile/ + employee.id">
-          <div class="uk-card-body">
-            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-auto">
-                    <img class="uk-border-circle" width="94" height="94" :src="employee.headshot.medium">
-                </div>
-                <div class="uk-width-expand">
-                    <h3 class="uk-card-title uk-link-heading uk-margin-remove-bottom">{{ employee.name.first + ' ' + employee.name.last }}</h3>
-                    <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">{{ employee.jobTitle }}</p>
-                    <p class="uk-text-meta uk-margin-remove-top small">{{ employee.department }} Department</p>
-                </div>
-            </div>
-          </div>
-        </router-link>
-      </article> -->
 
-      <article class="col s12 m6 l4" v-for="(employee, index) in searchResults" :key="employee.id">
+      <!-- <article class="col s12 m6 l4" v-for="(employee, index) in searchResults" :key="employee.id">
         <div class="card">
           <div class="card-content">
             <router-link :to="/profile/ + employee.id">
@@ -93,16 +55,19 @@
             <p class="truncate small">{{ employee.department }} Department</p>
           </div>
         </div>
-      </article>
+      </article> -->
 
-      <!-- <ul class="collection">
-        <li class="collection-item avatar" v-for="(employee, index) in searchResults" :key="employee.id">
-          <img :src="employee.headshot.medium" class="circle">
-          <router-link :to="/profile/ + employee.id"><h4 class="">{{ employee.name.first + ' ' + employee.name.last }}</h4></router-link>
-          <p>{{ employee.job_title }}</p>
-          <p class="small">{{ employee.department }} Department</p>
-        </li>
-      </ul> -->
+      <employee
+        v-for="(employee, index) in searchResults"
+        :key="employee.id"
+        v-bind:employee-id="employee.id"
+        v-bind:job-title="employee.job_title"
+        v-bind:full-name="employee.name.first + ' ' + employee.name.last"
+        v-bind:first-name="employee.name.first"
+        v-bind:last-name="employee.name.last"
+        v-bind:department="employee.department"
+        v-bind:headshot="employee.headshot.large"
+      ></employee>
 
     </section>
       <router-view></router-view>
@@ -111,8 +76,6 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router@3.4.9/dist/vue-router.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script src="js/app.js"></script>

@@ -1,5 +1,5 @@
 Vue.component('employee', {
-  props: ['employeeId', 'jobTitle', 'name', 'department','headshot'],
+  props: ['employeeId', 'jobTitle', 'fullName', 'firstName', 'lastName', 'department','headshot'],
 
   data() {
     return {
@@ -8,19 +8,20 @@ Vue.component('employee', {
   },
 
   template: `
-    <article class="uk-card uk-card-default uk-link-toggle uk-width-1-3@m uk-padding-remove">
-        <div class="uk-card-body">
-          <div class="uk-grid-small uk-flex-middle" uk-grid>
-              <div class="uk-width-auto">
-                  <img class="uk-border-circle" width="94" height="94" :src="headshot">
-              </div>
-              <div class="uk-width-expand">
-                  <h3 class="uk-card-title uk-link-heading uk-margin-remove-bottom">{{ name }}</h3>
-                  <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">{{ jobTitle }}</p>
-                  <p class="uk-text-meta uk-margin-remove-top small">{{ department }} Department</p>
-              </div>
-          </div>
+    <article class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-content">
+          <router-link :to="/profile/ + employeeId">
+            <img :src="headshot">
+            <h4 class="hide-on-small-only truncate">{{ fullName }}</h4>
+            <h4 class="hide-on-med-and-up truncate">{{ firstName }}<br>{{ lastName }}</h4>
+          </router-link>
         </div>
+        <div class="card-action">
+          <p class="truncate medium">{{ jobTitle }}</p>
+          <p class="truncate small">{{ department }} Department</p>
+        </div>
+      </div>
     </article>
   `
 });
@@ -50,10 +51,15 @@ let profile = Vue.component('profile', {
 });
 
 let routes = [
+  // {
+  //   path: '/',
+  //   component: directory
+  // },
   {
     path: '/profile/:id',
     component: profile
-  }
+  },
+
 ];
 
 const router = new VueRouter({
