@@ -16,7 +16,7 @@
   <header>
     <h1>Employee Directory</h1>
   </header>
-  <main class="container" v-on:hide-directory="directoryHide">
+  <main class="container">
 
       <form class="row">
         <div class="input-field col s12 m6">
@@ -45,25 +45,15 @@
       <employee
         v-for="(employee, index) in searchResults"
         :key="employee.id"
-        v-bind:employee-id="employee.id"
-        v-bind:job-title="employee.job_title"
-        v-bind:full-name="employee.name.first + ' ' + employee.name.last"
-        v-bind:first-name="employee.name.first"
-        v-bind:last-name="employee.name.last"
-        v-bind:department="employee.department"
-        v-bind:headshot="employee.headshot.large"
         v-bind:profile="employee"
       ></employee>
 
     </section>
 
-    <router-view></router-view>
-
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router@3.4.9/dist/vue-router.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script src="js/app.js"></script>

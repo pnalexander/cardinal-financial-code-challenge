@@ -21,10 +21,11 @@ Accent: #4E9A92
 /* 1. Globals */
 
 html, body {
+  /* prevent horizontal scroll, especially on mobile */
   overflow-x: hidden;
-  /* background-color: #002D40; */
 }
 body {
+  /* also helps prevent horizontal scroll */
   position: relative;
 }
 
@@ -89,6 +90,7 @@ h1, h2 {
   text-decoration: overline #DFA928;
 }
 
+/* input-related styles override Materialize styles */
 input {
   color: #4E9A92;
 }
