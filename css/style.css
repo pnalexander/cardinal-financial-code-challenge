@@ -7,12 +7,8 @@
 1. Globals
 2. Typography
 3. Body
-4. Header
-5. Main
-6. Footer
 
-
-[Color Codes] (extract to SCSS variables if time to refactor)
+[Color Codes]
 
 Primary: #002D40
 Secondary: #DFA928
@@ -34,9 +30,12 @@ body {
 
 /* 2. Typography */
 
-/* Define global font family */
+/* Define global font families */
 * {
   font-family: 'Montserrat', sans-serif !important;
+}
+i.material-icons {
+  font-family: 'Material Icons' !important;
 }
 
 /* Define font sizes and weights from style guide */
@@ -84,8 +83,7 @@ p.smallest {
 }
 
 /* 3. Body */
-h1 {
-  /* color: #4E9A92; */
+h1, h2 {
   color: #002D40;
   -webkit-text-decoration: overline #DFA928;
   text-decoration: overline #DFA928;
@@ -97,7 +95,6 @@ input {
 
 input[type=text]:not(.browser-default), input[type=text]:not(.browser-default) {
   border-bottom: 1px solid #4E9A92;
-  /* border-bottom: 1px solid #DFA928; */
 }
 input[type=text]:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid #DFA928;
@@ -112,27 +109,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
 .select-wrapper .caret {
   fill: #4E9A92;
 }
-
-a h4 {
-  margin: .15rem 0;
-  color: #002D40;
-}
-
-/* .collection {
-  border: 1px solid #58585B;
-}
-
-.collection .collection-item {
-  border-bottom: 1px solid #58585B;
-}
-
-.collection .collection-item p {
-  color: #58585B;
-}
-
-.collection .collection-item p.small {
-  color: #4E9A92;
-} */
 
 .card img {
   -webkit-border-radius: 50%;
@@ -163,4 +139,20 @@ a h4 {
 }
 .card p.small {
   color: #4E9A92;
+}
+
+.card-title {
+  color: #002D40;
+  -webkit-text-decoration: overline #DFA928;
+  text-decoration: overline #DFA928;
+}
+p.skill-heading {
+  margin-top: 15px;
+}
+ul.skills {
+  list-style-type: square;
+  margin-top: 0;
+}
+ul.skills>li {
+  font-size: 10px;
 }
